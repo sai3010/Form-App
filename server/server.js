@@ -1,6 +1,7 @@
 //var io = require('socket.io');
 const path= require('path');
 const publicpath=path.join(__dirname,'../public');
+const port=process.env.PORT||3000;
 const express=require('express');
 //http = require('http');
 //server = http.createServer(app);
@@ -11,7 +12,9 @@ var app=express();
 {
 	res.render('./index.html');
 });*/
-app.listen(3000);
+app.listen(port,()=>{
+	console.log('server is up on ${port}');
+});
 const MongoClient=require('mongodb').MongoClient;
 MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db)=>{
 if (err){
